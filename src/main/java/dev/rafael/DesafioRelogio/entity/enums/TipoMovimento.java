@@ -6,7 +6,7 @@ public enum TipoMovimento {
 	public static TipoMovimento fromApi(String valor){
 		if (valor == null || valor.isBlank()) return null;
 		return switch (valor){
-			case "quatz" -> QUARTZ;
+			case "quartz" -> QUARTZ;
 			case "automatic" -> AUTOMATICO;
 			case "manual" -> MANUAL;
 			default -> throw new IllegalArgumentException("Tipo de Movimento Inválido: " + valor);
@@ -15,7 +15,7 @@ public enum TipoMovimento {
 
 	public String toApi(){
 		return switch (this){
-			case QUARTZ -> "quatz";
+			case QUARTZ -> "quartz";
 			case AUTOMATICO -> "automatic";
 			case MANUAL -> "manual";
 		};
