@@ -2,7 +2,7 @@ package dev.rafael.DesafioRelogio.dto;
 
 import java.util.List;
 
-public record PaginaRelogiaDto(
+public record PaginaRelogioDto(
 		List<RelogioDto> itens,
 		long total
 ) {
