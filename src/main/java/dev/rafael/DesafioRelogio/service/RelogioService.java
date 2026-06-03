@@ -1,6 +1,7 @@
 package dev.rafael.DesafioRelogio.service;
 
 
+import dev.rafael.DesafioRelogio.dto.AtualizarRelogioRequest;
 import dev.rafael.DesafioRelogio.dto.CriarRelogioRequest;
 import dev.rafael.DesafioRelogio.dto.PaginaRelogioDto;
 import dev.rafael.DesafioRelogio.dto.RelogioDto;
@@ -109,7 +110,7 @@ public class RelogioService {
 		return mapper.toDto(relogioRepository.save(r));
 	}
 
-	public RelogioDto atualizar(UUID id, CriarRelogioRequest req){
+	public RelogioDto atualizar(UUID id, AtualizarRelogioRequest req){
 		Relogio r = relogioRepository.findById(id)
 				.orElseThrow(() -> NaoEncontradoException("Relógio não encontrado: "+id));
 
