@@ -1,4 +1,4 @@
-package dev.rafael.DesafioRelogio.service;
+package dev.rafael.DesafioRelogio.service.specification;
 
 import dev.rafael.DesafioRelogio.entity.Relogio;
 import dev.rafael.DesafioRelogio.entity.enums.MaterialCaixa;

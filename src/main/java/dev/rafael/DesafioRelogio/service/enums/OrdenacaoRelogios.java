@@ -1,4 +1,4 @@
-package dev.rafael.DesafioRelogio.service;
+package dev.rafael.DesafioRelogio.service.enums;
 
 public enum OrdenacaoRelogios {
 	MAIS_RECENTES, PRECO_CRESC, PRECO_DESC, DIAMETRRO_CRESC, RESISTENCIA_DESC;

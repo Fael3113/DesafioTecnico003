@@ -12,6 +12,7 @@ import dev.rafael.DesafioRelogio.entity.enums.TipoVidro;
 import dev.rafael.DesafioRelogio.exception.NaoEncontradoException;
 import dev.rafael.DesafioRelogio.mapper.RelogioMapper;
 import dev.rafael.DesafioRelogio.repository.RelogioRepository;
+import dev.rafael.DesafioRelogio.service.enums.OrdenacaoRelogios;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,7 +24,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.UUID;
 
-import static dev.rafael.DesafioRelogio.service.RelogioSpecs.*;
+import static dev.rafael.DesafioRelogio.service.specification.RelogioSpecs.*;
 
 @Service
 @RequiredArgsConstructor
