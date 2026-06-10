@@ -9,6 +9,7 @@ import dev.rafael.DesafioRelogio.entity.Relogio;
 import dev.rafael.DesafioRelogio.entity.enums.MaterialCaixa;
 import dev.rafael.DesafioRelogio.entity.enums.TipoMovimento;
 import dev.rafael.DesafioRelogio.entity.enums.TipoVidro;
+import dev.rafael.DesafioRelogio.exception.NaoEncontradoException;
 import dev.rafael.DesafioRelogio.mapper.RelogioMapper;
 import dev.rafael.DesafioRelogio.repository.RelogioRepository;
 import lombok.RequiredArgsConstructor;
@@ -84,7 +85,7 @@ public class RelogioService {
 	}
 
 	public RelogioDto buscarPorId(UUID id){
-		Relogio r = relogioRepository.findById(id).orElseThrow(() -> NaoEncontradoException("Relógio não encontrado: "+id));
+		Relogio r = relogioRepository.findById(id).orElseThrow(() -> new NaoEncontradoException("Relógio não encontrado: "+id));
 		return mapper.toDto(r);
 	}
 
@@ -112,7 +113,7 @@ public class RelogioService {
 
 	public RelogioDto atualizar(UUID id, AtualizarRelogioRequest req){
 		Relogio r = relogioRepository.findById(id)
-				.orElseThrow(() -> NaoEncontradoException("Relógio não encontrado: "+id));
+				.orElseThrow(() -> new NaoEncontradoException("Relógio não encontrado: "+id));
 
 		r.setMarca(req.marca());
 		r.setModelo(req.modelo());
