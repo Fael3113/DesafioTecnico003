@@ -1,0 +1,38 @@
+version: '1'
+
+volumes:
+  db_relogio:
+
+networks:
+  relogio_net:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: spring-relogio-db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5431:5432"
+    volumes:
+      - db_relogio:/var/lib/postgresql
+    networks:
+      relogio_net:
+
+  app:
+    image: fael3113/primeira-imagem-app
+    container_name: spring-relogio
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8080:8080"
+    networks:
+      relogio_net:
+    depends_on:
+      - postgres
+
